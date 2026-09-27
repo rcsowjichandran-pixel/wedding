@@ -1,0 +1,18 @@
+Special occasions  | Birthday Invitations | ₹5 - ₹45
+Special occasions  | Puberty Cards | ₹6 - ₹38
+Special occasions  | Luxury Invitations | ₹65 - ₹550
+Special occasions  | Ear Boring Cards | ₹6 - ₹32
+Special occasions  | Engagement Cards | ₹8 - ₹65
+Special occasions  | House Warming Cards | ₹6 - ₹35
+Special occasions  | Anniversary Cards | ₹8 - ₹55
+Theme Cards        | Beach Theme Cards | ₹14 - ₹75
+Theme Cards        | Birds Theme Cards | ₹12 - ₹60
+Theme Cards        | Box Cards | ₹55 - ₹350
+Theme Cards        | Single Sheet Cards | ₹5 - ₹22
+Theme Cards        | Palace Theme Cards | ₹22 - ₹110
+Scroll Invitation  | Small Size Scroll | ₹25 - ₹65
+Scroll Invitation  | Box Scroll | ₹75 - ₹280
+Scroll Invitation  | Only Scroll | ₹35 - ₹95
+Scroll Invitation  | High End Scroll | ₹160 - ₹650
+Digital Invitation | WhatsApp Cards | 24h
+Digital Invitation | Save The Date Cards | 24h

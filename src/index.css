@@ -1,0 +1,367 @@
+/* Wed Knot Craft - Strict Design System Implementation */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --color-primary: #283451;
+    --color-secondary: #f59e0b;
+    --color-secondary-light: #ffc107;
+    --color-accent: #f8e6ae;
+    --color-border: #d9d9d9;
+    --color-surface: #efeeee;
+    --color-page: #ffffff;
+    --color-text: #283451;
+    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Oswald', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-body);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-width: 320px;
+    background-color: var(--color-page);
+    color: var(--color-text);
+    font-family: var(--font-body);
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    border: none;
+    background-color: var(--color-page);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+
+  h1 {
+    font-size: 32px;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 20px;
+    line-height: 1.35;
+    font-weight: 600;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Custom Spacing & Button Classes */
+.btn-primary {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.btn-primary:hover {
+  background-color: var(--color-secondary-light);
+  box-shadow: 0 4px 12px rgba(255, 171, 13, 0.35);
+}
+
+.btn-secondary {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #fed387;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.btn-secondary:hover {
+  background-color: #fed387;
+}
+
+.card-padding {
+  padding: 10px;
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 24px;
+  row-gap: 24px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Hindu product cards: a distinct golden mandala hover */
+@keyframes hinduHaloSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hinduCardShine {
+  0% {
+    transform: translateX(-150%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(260%) rotate(25deg);
+  }
+}
+
+.hindu-product-card {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid transparent;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 420ms ease, border-color 420ms ease;
+}
+
+.hindu-product-card::before {
+  content: '';
+  position: absolute;
+  inset: -35%;
+  z-index: -1;
+  border: 2px solid rgba(217, 119, 6, 0.32);
+  border-radius: 38%;
+  transform: rotate(0deg) scale(0.72);
+  opacity: 0;
+  transition: opacity 360ms ease, transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hindu-product-card::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  bottom: -40%;
+  left: -30%;
+  z-index: 4;
+  width: 25%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  opacity: 0;
+}
+
+.hindu-product-card:hover {
+  transform: translateY(-10px) scale(1.015);
+  border-color: rgba(217, 119, 6, 0.5);
+  box-shadow: 0 22px 42px rgba(180, 83, 9, 0.2), 0 0 0 7px rgba(245, 158, 11, 0.08);
+}
+
+.hindu-product-card:hover::before {
+  opacity: 1;
+  transform: rotate(45deg) scale(0.86);
+  animation: hinduHaloSpin 8s linear infinite;
+}
+
+.hindu-product-card:hover::after {
+  opacity: 1;
+  animation: hinduCardShine 900ms ease-out forwards;
+}
+
+.hindu-product-card > div:first-child {
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hindu-product-card:hover > div:first-child {
+  transform: translateY(-3px);
+}
+
+.hindu-product-image {
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), filter 420ms ease;
+}
+
+.hindu-product-card:hover .hindu-product-image {
+  transform: scale(1.09) rotate(-1deg);
+  filter: saturate(1.18) sepia(0.08);
+}
+
+.hindu-product-card h3 {
+  transition: color 320ms ease, transform 320ms ease;
+}
+
+.hindu-product-card:hover h3 {
+  color: #b45309;
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hindu-product-card,
+  .hindu-product-card::before,
+  .hindu-product-card::after,
+  .hindu-product-card > div:first-child,
+  .hindu-product-image,
+  .hindu-product-card h3 {
+    animation: none;
+    transition: none;
+  }
+}
+
+
+@keyframes categoryShimmer {
+  0% {
+    transform: translateX(-130%) rotate(18deg);
+  }
+  100% {
+    transform: translateX(260%) rotate(18deg);
+  }
+}
+
+.category-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 420ms ease, border-color 420ms ease,
+    box-shadow 420ms ease;
+}
+
+.category-card::before {
+  content: '';
+  position: absolute;
+  inset: -35%;
+  z-index: -2;
+  background: var(--category-color);
+  opacity: 0;
+  transform: scale(0.45) rotate(-12deg);
+  border-radius: 45%;
+  transition: opacity 420ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.category-card::after {
+  content: '';
+  position: absolute;
+  top: -35%;
+  bottom: -35%;
+  left: -25%;
+  z-index: 3;
+  width: 24%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.48), transparent);
+  opacity: 0;
+  transform: translateX(-130%) rotate(18deg);
+}
+
+.category-card:hover {
+  transform: translateY(-8px) rotate(-0.5deg);
+  background-color: var(--category-color);
+  border-color: color-mix(in srgb, var(--category-color) 70%, white);
+  box-shadow: 0 18px 34px color-mix(in srgb, var(--category-color) 34%, transparent);
+}
+
+.category-card:hover::before {
+  opacity: 0.95;
+  transform: scale(1) rotate(-12deg);
+}
+
+.category-card:hover::after {
+  opacity: 1;
+  animation: categoryShimmer 900ms ease-out forwards;
+}
+
+.category-card > div {
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.category-card:hover > div {
+  transform: translateY(-2px);
+}
+
+.category-card img {
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1), filter 420ms ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.08) rotate(1deg);
+  filter: saturate(1.12) contrast(1.03);
+}
+
+.category-card h3 {
+  position: relative;
+  z-index: 4;
+  transition: color 320ms ease, letter-spacing 320ms ease;
+}
+
+.category-card:hover h3 {
+  color: #ffffff;
+  letter-spacing: 0.025em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-card,
+  .category-card::before,
+  .category-card::after,
+  .category-card > div,
+  .category-card img,
+  .category-card h3 {
+    animation: none;
+    transition: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E6E6FA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFE5B4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFAB0D;
+}
